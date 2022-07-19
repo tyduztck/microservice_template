@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  ckteo:
+    build: 
+      target: production
+    command: node build/app.js

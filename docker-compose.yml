@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  ckteo: 
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    volumes:
+      - ./src:/home/node/app/src
+      - ./nodemon.json:/home/node/app/nodemon.json
+    container_name: 'microservice-1'
+    command: npm run dev

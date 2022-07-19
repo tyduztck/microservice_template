@@ -1,0 +1,9 @@
+port: 4000
+
+db:
+  NAME: default
+  HOST: 
+  PORT: 
+  USER: 
+  PASSWORD: 
+  DATABASE: 

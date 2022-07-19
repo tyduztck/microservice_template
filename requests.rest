@@ -1,0 +1,11 @@
+//This is to test http request
+//In vscode, install humao.rest-client in order to use this
+
+//Method not found
+GET http://localhost:4000/notfound 
+###
+
+//This is calling on microservice1
+GET http://localhost:4000/posts/ckteo
+
+###

@@ -1,0 +1,8 @@
+# dependencies
+node_modules
+
+# build folder
+/build
+
+# Misc
+**/.DS_Store
