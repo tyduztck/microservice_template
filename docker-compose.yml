@@ -11,3 +11,5 @@ services:
       - ./nodemon.json:/home/node/app/nodemon.json
     container_name: 'microservice-1'
     command: npm run dev
+    ports:
+      - "4000:4000"
