@@ -1,4 +1,4 @@
-FROM node:16 as base
+FROM node:16.15.1-slim as base
 WORKDIR /home/node/app
 COPY package*.json ./
 RUN npm i
