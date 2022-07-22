@@ -1,14 +1,13 @@
 import { Express, Request, Response} from 'express';
 import swaggerJsDoc from 'swagger-jsdoc';
 import swaggerUI from 'swagger-ui-express';
-import { version } from '../../package.json';
 
 const swaggerOptions: swaggerJsDoc.Options = {
     definition: {
         openapi: "3.0.0",
         info: {
           title: "Microservice 1",
-          version,
+          version: "1.0.0",
         },
         components: {
           securitySchemas: {
