@@ -1,45 +1,15 @@
-import express, {
-  Express,
-  Request,
-  Response,
-  NextFunction,
-  json,
-} from 'express';
+import express, { Express, json } from 'express';
 import Config from "./lib/config";
-import { getUserData } from './interactor/micro_interactor';
-import {
-  ApiError,
-  List
-} from './lib/api_errors';
+import routes from "./routes";
+import errorHandler from './utils/error_handler';
+import swaggerDoc from './utils/swagger';
 
 const app: Express = express();
 app.use(json()); 
 
-// Middleware
-const authenticateToken = async (req: Request, res: Response, next: NextFunction) => {
-  next();
-}
-
-// Routes
-app.get('/posts/:username', async (req: Request, res: Response) => {
-  const username = req.params.username;
-  const userData = await getUserData(username);
-  res.json(userData);
+app.listen(Config.get('port'), async() => {
+  console.log(`Microservice 1 is running on port ${Config.get('port')}.`);
+  routes(app);
+  swaggerDoc(app, Config.get('port'));
+  errorHandler(app);
 });
-
-// Error Handling
-app.use((req: Request, res: Response, next: NextFunction) => {
-  next(List.METHOD_NOT_FOUND);
-});
-
-app.use((err: number, req: Request, res: Response, next: NextFunction) => {  
-  const errorCode = new ApiError(err);
-  res.json({
-    name: errorCode.name,
-    code: errorCode.code
-  })
-});
-
-app.listen(Config.get('port'));
-// eslint-disable-next-line eol-last
-console.log(`Microservice 1 is running on port ${Config.get('port')}.`);
