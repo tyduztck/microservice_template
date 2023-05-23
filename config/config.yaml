@@ -1,5 +1,9 @@
 port: 4000
 
+jwt:
+  TOKEN_REFRESH_TIME: 5m
+  ACCESS_SECRET_TOKEN: 3abddd248587cd42e8cc5d1a0c07a4f73e224474cde823dbbb2d6693793bc7dc34ae17ff53f0d081abcabd75781148f6289adc898ba687d9f0fb012fb9f8741f
+
 db:
   NAME: default
   HOST: 

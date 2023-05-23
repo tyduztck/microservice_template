@@ -1,6 +1,6 @@
 import { Express, Request, Response } from "express";
 import { getUserData } from './interactor/micro_interactor';
-import authenticateToken from './middleware/authentication';
+import { authenticateToken } from './middleware/authentication';
 
 function routes(app: Express) {
     /**
